@@ -13,18 +13,14 @@ alias edit="sudo nvim ~/.zshrc"
 #git ammend
 alias gcommit="git commit --amend --no-edit"
 
-gstore(){
-gitbranch=$1
-}
-
 gpush(){
 gsafe
-fpush $gitbranch
+fpush $(git rev-parse --abbrev-ref HEAD)
 }
 
 gup(){
 gsafe
-git push -u origin $gitbranch
+git push -u origin $(git rev-parse --abbrev-ref HEAD)
 }
 
 gadd(){
@@ -33,47 +29,33 @@ git add .
 git status
 }
 
-gnew(){
-gstore $3
-gfetch
-gcheck
-}
-
-gget(){
-gstore $1
-gfetch
-gcheck
-}
-
 gbit(){
 echo $3
 gout $3
 }
 
+gout(){
+gcheck
+}
+
 gmap(){
-gstore $1
-git checkout -b $1 
+git checkout -b $1
 }
 
 gmap4(){
 gmap $4
 }
 
-gout(){
-gstore $1
-gcheck
-}
-
 gcheck(){
-git checkout $gitbranch
+git checkout $1
 }
 
 gsafe(){
-echo $gitbranch
+echo $(git rev-parse --abbrev-ref HEAD)
 }
 
 greset(){
-git reset --hard origin/$gitbranch
+git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
 }
 
 gpull(){
@@ -87,8 +69,4 @@ git fetch
 
 fpush(){
 git push origin $1 --force-with-lease
-}
-
-superecho(){
-echo $1 
 }
