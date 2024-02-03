@@ -8,10 +8,10 @@ gcommit which is git commit --amend --no-edit so you can save a lot of time
 It also has branch management included. Will probably work on a way to not have this in the future. So when you make a push to your branch with either gup or gpush you won't need to type in the branch name or the whole push command
 
 | Commands | What it does | Arguements |
-|---|---|
-| gadd | Adds files |  |
-| gcommit | Git commit amends with no edits |  |
-| gup | Push Branch to origin and current branch |  |
-| gpush | Force pushes to origin and current with lease |  |
+|---|:------:|:------:|
+| gadd | Adds files | None |
+| gcommit | Git commit amends with no edits | None |
+| gup | Push Branch to origin and current branch | None |
+| gpush | Force pushes to origin and current with lease | None |
 | gout | Checks out branch | Branch name |
 | gmap | Maps new branch and changes to it | Branch name |
